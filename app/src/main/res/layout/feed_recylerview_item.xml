@@ -19,7 +19,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/activity_horizontal_margin"
-        android:text="TextView"
+        android:text=""
         app:layout_constraintStart_toEndOf="@id/authorImage"
         app:layout_constraintTop_toTopOf="@id/authorImage" />
 
@@ -27,7 +27,7 @@
         android:id="@+id/messageTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="TextView"
+        android:text=""
         app:layout_constraintStart_toStartOf="@id/subRedditTextView"
         app:layout_constraintTop_toBottomOf="@+id/subRedditTextView" />
 
@@ -36,7 +36,7 @@
         android:id="@+id/titleTextView"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:text="TextView"
+        android:text=""
         android:textAlignment="textStart"
         android:layout_marginHorizontal="@dimen/activity_horizontal_margin"
         android:layout_marginTop="@dimen/activity_vertical_margin"
@@ -59,12 +59,16 @@
             android:id="@+id/postImage"
             android:layout_width="match_parent"
             android:layout_height="@dimen/postImageHeight"
+            android:visibility="gone"
             />
     </LinearLayout>
     <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
+        android:layout_marginBottom="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginHorizontal="8dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -76,13 +80,20 @@
             android:layout_width="@dimen/actionIconSize"
             android:layout_height="@dimen/actionIconSize"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/titleTextView" />
-
+            app:layout_constraintTop_toBottomOf="@id/titleTextView"
+            android:src="@drawable/arrow_up"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:text="Vote"/>
 
         <ImageView
             android:id="@+id/downVoteIcon"
             android:layout_width="@dimen/actionIconSize"
             android:layout_height="@dimen/actionIconSize"
+            android:src="@drawable/arrow_down"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/titleTextView" />
 
@@ -98,13 +109,14 @@
             android:id="@+id/commentIcon"
             android:layout_width="@dimen/actionIconSize"
             android:layout_height="@dimen/actionIconSize"
+            android:src="@drawable/arrow_comment"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/titleTextView" />
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        tools:text="141"/>
+        android:text="Comment"/>
 </LinearLayout>
 
 
@@ -119,13 +131,14 @@
                 android:id="@+id/shareIcon"
                 android:layout_width="@dimen/actionIconSize"
                 android:layout_height="@dimen/actionIconSize"
+                android:src="@drawable/arrow_share"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/titleTextView" />
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
-                tools:text="141"/>
+                android:text="Share"/>
         </LinearLayout>
 
 
@@ -133,10 +146,20 @@
             android:id="@+id/giftIcon"
             android:layout_width="@dimen/actionIconSize"
             android:layout_height="@dimen/actionIconSize"
+            android:src="@drawable/gift"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/titleTextView" />
 
     </LinearLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:background="@color/colorDivider"
+        />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

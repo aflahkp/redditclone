@@ -19,8 +19,11 @@ class FeedItemModel {
     );
     data class PostData(
         @SerializedName("subreddit") val subreddit: String,
-        @SerializedName("selftext") val selftext: String,
-        @SerializedName("author_fullname") val author_fullname: String
+        @SerializedName("title") val title: String?,
+        @SerializedName("author") val author: String?,
+        @SerializedName("subreddit_name_prefixed") val subreddit_name_prefixed: String?,
+        @SerializedName("thumbnail") val thumbnail: String?,
+        @SerializedName("author_fullname") val author_fullname: String?
     );
 
 }

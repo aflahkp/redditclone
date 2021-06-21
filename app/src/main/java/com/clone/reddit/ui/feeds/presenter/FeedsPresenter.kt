@@ -1,5 +1,6 @@
 package com.clone.reddit.ui.feeds.presenter
 
+import com.bumptech.glide.Glide
 import com.clone.reddit.network.ApiServiceInterface
 import com.clone.reddit.ui.feeds.adapter.FeedAdapter
 import com.clone.reddit.ui.feeds.base.Feeds
@@ -43,9 +44,10 @@ class FeedsPresenter: Feeds.Presenter {
 
     fun onBindFeedItemViewAtPosition(position: Int, feedItemView: FeedItemView){
         val feedItem = feedItems[position];
-        feedItemView.setTitle(feedItem.data.author_fullname)
-        feedItemView.setMessage(feedItem.data.subreddit)
-
+        feedItem.data.title?.let { feedItemView.setTitle(it) }
+        feedItem.data.author?.let { feedItemView.setAuthor(it) }
+        feedItem.data.subreddit_name_prefixed?.let { feedItemView.setMessage(it) }
+        feedItemView.setThumbnail(feedItem.data.thumbnail?:"")
     }
 
     private fun appendFeedItemsData(items: List<FeedItemModel.Post>){
